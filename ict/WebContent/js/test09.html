@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<form action="/js/test08.jsp">
+		<table id="info" border="1">
+			<tr>
+				<td colspan="2" align="center">회원가입</td>
+			</tr>
+			<tr>
+				<td>ID :</td>
+				<td><input class="info" type="text" id="id" name="id"
+					maxlength="5" placeholder="ID는 5글자 이상"></td>
+			</tr>
+			<tr>
+				<td>PWD :</td>
+				<td><input class="info" type="password" id="pwd" name="pwd"
+					maxlength="6" placeholder="PWD는 6글자 이상"></td>
+			</tr>
+			<tr>
+				<td>PWD CONFIRM :</td>
+				<td><input class="info" type="password" id="pwdCfrm"
+					name="pwdCfrm" maxlength="6" placeholder="입력한 PWD 재입력"></td>
+			</tr>
+			<tr>
+				<td>NAME :</td>
+				<td><input class="info" type="text" id="name" name="name"
+					placeholder="이름 입력"></td>
+			</tr>
+			<tr>
+				<td>AGE :</td>
+				<td><input class="info" type="number" id="age" name="age"
+					min="1" value="1" placeholder="나이 입력"></td>
+			</tr>
+			<tr>
+				<td colspan="2" align="center">
+					<button onclick="check()">회원가입</button>
+				</td>
+			</tr>
+		</table>
+	</form>
+	<script>
+		var wholeInfo;
+		
+		function check() {
+			wholeInfo = document.querySelectorAll('.info');
+
+			if (wholeInfo[0].value.length < 5) {
+				wholeInfo[0].value = '';
+				wholeInfo[0].focus();
+				alert('ID는 반드시 5자 이상이여야 합니다.');
+				return false;
+			}
+
+			if (wholeInfo[1].value.length < 6) {
+				wholeInfo[1].value = '';
+				wholeInfo[1].focus();
+				alert('PWD는 반드시 6자 이상이여야 합니다.');
+				return false;
+			}
+
+			if (wholeInfo[2].value !== wholeInfo[1].value) {
+				wholeInfo[2].value = '';
+				wholeInfo[2].focus();
+				alert('입력된 PWD와 다릅니다.');
+				return false;
+			}
+
+			if (wholeInfo[3].value.trim() === '') {
+				wholeInfo[3].value = '';
+				wholeInfo[3].focus();
+				alert('이름을 반드시 입력해주십시오.');
+				return false;
+			}
+
+			if (wholeInfo[4].value >= 130) {
+				wholeInfo[4].value = 1;
+				wholeInfo[4].focus();
+				alert('당신은 그렇게 늙어보이지 않습니다.');
+				return false;
+			}
+
+			return true;
+
+		}
+
+		function order() {
+			if (check() == true) {
+				return '/js/test08.jsp';
+			} else
+				return false;
+		}
+	</script>
+</body>
+</html>

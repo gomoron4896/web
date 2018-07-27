@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<div id="rDiv"></div>
+	열 개수 :
+	<input type="text" id="rCnt">
+	<br> 행 개수 :
+	<input type="text" id="cCnt">
+	<br>
+	<button onclick="makeTable()">테이블 생성</button>
+	<script>
+		var rCnt = document.querySelector('#rCnt');
+		var cCnt = document.querySelector('#cCnt');
+		var order = '';
+		
+		function makeBtn(var btnOrder) {
+			if(btnOrder==0) {
+				order = '<button '
+			}
+		}
+		
+		function makeTable() {
+			var rDiv = document.querySelector("#rDiv");
+			var rCntV = parseInt(rCnt.value);
+			var cCntV = parseInt(cCnt.value);
+			var str = '<table border="1">';
+			for (var i = 1; i <= rCntV; i++) {
+				str += '<tr>';
+				for (var j = 1; j <= cCntV; j++) {
+					str += '<td>' + (j + (cCntV * (i - 1))) + '</td>';
+				}
+				str += '</tr>';
+			}
+			str += '</table>';
+			rDiv.innerHTML = str;
+		}
+	</script>
+</body>
+</html>

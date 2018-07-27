@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	NAME :
+	<input type="text" id="name" name="name">
+	<br> HOBBY :
+	<input type="text" id="hobby" name="hobby">
+	<br>
+	<button onclick="result()">INSERT</button>
+	<br> RESULT :
+	<textarea id="result"></textarea>
+
+
+	<script>
+		function result() {
+			//var nameObj = document.querySelector('#name');
+			var nameObjAll = document.querySelectorAll('input');
+			alert(nameObjAll[0].value);
+			alert(nameObjAll[1].value);
+		}
+	</script>
+</body>
+</html>
